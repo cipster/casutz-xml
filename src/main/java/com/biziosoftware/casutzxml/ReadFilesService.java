@@ -42,7 +42,6 @@ public class ReadFilesService implements CommandLineRunner {
             P4000 p4000 = xmlMapper.readValue(inputStream, P4000.class);
             p4000s.add(p4000);
         }
-        log.info("gata", p4000s);
 
         return p4000s;
     }
@@ -65,7 +64,7 @@ public class ReadFilesService implements CommandLineRunner {
         Path path = Paths.get("./output/P4000.xml");
         Files.deleteIfExists(path);
         String xmlStringValue = "<?xml version=\"1.0\"?>\n" + xmlMapper.writerWithDefaultPrettyPrinter().writeValueAsString(result);
-
+        log.info("gata: {}", xmlStringValue);
         Files.writeString(path, xmlStringValue);
     }
 
